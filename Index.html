@@ -1,59 +1,40 @@
-﻿<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<meta name="wap-font-scale" content="no">
+<!DOCTYPE html>
+<html lang="zh-en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="wap-font-scale" content="no">
 
-		<title>重神机潘多拉</title>
-		<meta name="keywords" content="海天云龙,海天云龙（厦门）文化传媒有限公司,Skyloong,动漫,动画连续剧,绝防都市,河森正治,Hyper Destroyer,超时空要塞,satelight,厦门海天云龙,厦门海天云龙文化传媒有限公司"/>
-		<meta name="description" content="海天云龙,海天云龙（厦门）文化传媒有限公司,Skyloong,动漫,动画连续剧,绝防都市,河森正治,Hyper Destroyer,超时空要塞,satelight,厦门海天云龙,厦门海天云龙文化传媒有限公司 "/>
-		<meta name="author" content="海天云龙（厦门）文化传媒有限公司"/>
-		<meta name="copyright" content="海天云龙（厦门）文化传媒有限公司"/>
-		<meta name="company" content="海天云龙（厦门）文化传媒有限公司"/>
-		<link rel="icon" href="http://www.project-pandora.jp/img/favicon.ico">
-		<link rel="stylesheet" href="css/style.css">
-		<link href="css/d7a75df4558c4f6eb0c9d980f32b9c87.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/notosansjp.css">
-        <link rel="canonical" href="http://www.project-pandora.jp/">
-		<!--pc端跳转-->
-		<!--<script>
-			var agent = navigator.userAgent.toLowerCase();
-			if(agent.search('iphone')<0 && agent.search('ipod')<0 && agent.search('ipad')<0 && agent.search('android')<0){
-            	var query = location.search;
-            	var hash = location.hash;
-//				location.href = '../'+query+hash;
-			}
-		</script>-->
-	</head>
-	<body id="index" class="page">
-		<div id="app">
-			<router-view></router-view>
-		</div>
+	<title>重神机潘多拉</title>
+	<meta name="keywords" content="海天云龙,海天云龙（厦门）文化传媒有限公司,Skyloong,动漫,动画连续剧,绝防都市,河森正治,Hyper Destroyer,超时空要塞,satelight,厦门海天云龙,厦门海天云龙文化传媒有限公司"/>
+	<meta name="description" content="海天云龙,海天云龙（厦门）文化传媒有限公司,Skyloong,动漫,动画连续剧,绝防都市,河森正治,Hyper Destroyer,超时空要塞,satelight,厦门海天云龙,厦门海天云龙文化传媒有限公司 "/>
+	<meta name="author" content="海天云龙（厦门）文化传媒有限公司"/>
+	<meta name="copyright" content="海天云龙（厦门）文化传媒有限公司"/>
+	<meta name="company" content="海天云龙（厦门）文化传媒有限公司"/>
+	<link href="/css/style.css" rel="stylesheet">
+	<link href="/css/notosansjp.css" rel="stylesheet">
+  </head>
+  <body>
 
-		<template id="page">
-			<div class="page"></div>
-		</template>
+	<div id="app">
+		<router-view></router-view>
+	</div> <!-- / #app --> 
 
-		<template id="home">
-			<div class="loader">
-				<div class="ball-scale-multiple"><div></div><div></div><div></div></div>
-			</div>
-			<!-- header -->
-			<div id="header" role="banner">
+	<template id="page">
+		<div class="page"></div>
+	</template>
+
+	<template id="header">
+		<div class="page-top">
+			<div class="nav"  role="banner" style="height: 100%; position: relative;">
 				<header>
 					<div id="gnav_layer"></div>
 					<div class="inner">
 						<div id="gnav" role="navigation">
 							<nav>
 								<ul>
-									<li class="top"><a href="./">TOP</a><hr></li>
-									<li class="news"><a href="/wp/news/">NEWS</a><hr></li>
-									<li class="introduction"><a href="./introduction/">INTRODUCTION</a><hr></li>
-									<li class="cast"><a href="./cast/">STAFF &amp; CAST</a><hr></li>
-									<li class="character"><a href="./character/">CHARACTER</a><hr></li>
-									<li class="keyword"><a href="./keyword/">KEYWORD</a><hr></li>
+									<li v-for="item in menuItems"><router-link v-bind:to="item.link">{{item.name}}</router-link></li>
 								</ul>
 							</nav>
 						</div>
@@ -74,6 +55,30 @@
 
 				</header>
 			</div>
+		</div>
+	</template>
+
+	<template id="page-bottom">
+		<div class="page-bottom">
+			<div class="page-bottom-content">
+				<ul class="menu">
+					<li v-for="item in menuItems"><router-link v-bind:to="item.link">{{item.name}}</router-link></li>
+				</ul>
+				<p class="copyright">©2017 SHOJI KAWAMORI, SATELIGHT / XIAMEN SKYLOONG MEDIA.</p>
+			</div>
+			<div class="page-bottom-bg"></div>
+			<div class="page-bottom-bg-2"></div>
+		</div>
+	</template>
+
+	<template id="home">
+		<div class="page-home">
+			<page-top></page-top>
+			<div class="loader">
+				<div class="ball-scale-multiple"><div></div><div></div><div></div></div>
+			</div>
+			<!-- header -->
+
 
 			<div class="btn_gnav">
 				<div class="inner">
@@ -144,14 +149,78 @@
 					</footer>
 				</div><!--/#footer-->
 			</div><!--/#stage-->
-		</template>
+		</div>
+	</template>
+
+	<template id="news">
+		<div class="page page-news">
+
+		</div>
+	</template>
 
 
-		<script src="js/package.min.js"></script>
-		<script src="js/common.min.js"></script>
-		<script src="js/vue.min.js"></script>
-		<script src="js/vue-router.js"></script>
-		<script src="js/page.js"></script>
-		<script src="js/index.js"></script>
-	</body>
+	<template id="keyword">
+		<div class="page page-keyword">
+
+
+		</div>
+	</template>
+
+	<template id="goods">
+		<div class="page page-goods">
+
+
+		</div>
+	</template>
+
+	<template id="cast">
+		<div class="page page-cast">
+
+
+		</div>
+	</template>
+
+	<template id="character">
+		<div class="page page-character">
+
+
+		</div>
+	</template>
+
+	<template id="mechanic">
+		<div class="page page-mechanic">
+
+
+		</div>
+	</template>
+
+	<template id="story">
+		<div class="page page-story">
+
+		</div>
+	</template>
+	
+	<template id="popup">
+		<div class="page page-popup" v-on:click="close" title="返回" v-show="show">
+			<transition name="fade">
+			<div class="page-popup-content" v-on:click="stopClose(event)" title="" v-show="show">
+				<div class="box">
+					<div class="box-inner" v-html="html">
+					</div>
+				</div>
+				<div class="btn-close" v-on:click="close"></div>
+
+			</div>
+			</transition>
+		</div>
+	</template>
+	
+	<script src="/js/package.min.js"></script>
+	<script src="/js/common.min.js"></script>
+	<script src="/js/page.js"></script>
+	<script src="/js/vue.min.js"></script>
+	<script src="/js/vue-router.js"></script>
+	<!--<script type="text/javascript" src="https://g.alicdn.com/de/prismplayer/1.9.2/prism.js"></script>-->
+	<script src="/js/index.js"></script>
+  </body>
 </html>

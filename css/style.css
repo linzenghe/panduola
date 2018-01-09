@@ -459,7 +459,7 @@ img {
   height: 100%;
 }
 
-#header {
+.nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -468,7 +468,7 @@ img {
   z-index: 100;
 }
 
-#header #logo {
+.nav #logo {
   position: absolute;
   top: 0;
   left: 50%;
@@ -479,7 +479,7 @@ img {
   padding: 3% 0 0;
 }
 
-#header #logo a {
+.nav #logo a {
   display: block;
   padding-top: 63.42105%;
   background: url("../img/common/logo.png") no-repeat;
@@ -488,7 +488,7 @@ img {
   font-size: 0;
 }
 
-#header .inner {
+.nav .inner {
   display: none;
   position: relative;
   padding-bottom: 12%;
@@ -923,11 +923,11 @@ body:not(#index) #footer .links {
 }
 
 /*index*/
-#index #header #logo {
+#index .nav #logo {
   display: none;
 }
 
-#index.on #header #logo {
+#index.on .nav #logo {
   display: block;
 }
 
